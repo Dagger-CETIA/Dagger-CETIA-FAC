@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--connect', default='127.0.0.1:14550')
 args = parser.parse_args()
-connection_string = 'COM9'#'192.168.177.190'
+connection_string = 'COM9'
 
 # Connect to the Vehicle
 print("Connecting to vehicle on: %s" % connection_string)
