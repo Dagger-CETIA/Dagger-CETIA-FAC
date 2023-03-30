@@ -9,8 +9,7 @@ connection_string = 'COM9'
 
 # Connect to the Vehicle
 print("Connecting to vehicle on: %s" % connection_string)
-vehicle = connect(connection_string, baud=230400, wait_ready=True, rate= 20, heartbeat_timeout=120)
-#230400 is the baudrate that you have set in the mission plannar or qgc
+vehicle = connect(connection_string, baud=230400, wait_ready=True, rate= 20, heartbeat_timeout=120) #230400 is the baudrate that you have set in the mission plannar or qgc
 
 # Function to arm and then takeoff to a user specified altitude
 def arm_and_takeoff(aTargetAltitude):
