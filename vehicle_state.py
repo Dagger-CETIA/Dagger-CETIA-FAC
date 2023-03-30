@@ -1,5 +1,5 @@
 import sys
-from dronekit import connect
+from dronekit import connect, VehicleMode
 print (sys.version)
 #print ("Start simulator (SITL)")
 import dronekit_sitl
