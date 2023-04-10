@@ -1,4 +1,4 @@
-# CETIA-FAC-Dagger-M1
+# CETIA-FAC-Dagger
 
 Funcional en el IDE Visual Studio Code usando:
 
