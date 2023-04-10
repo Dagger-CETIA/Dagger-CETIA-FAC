@@ -1,4 +1,4 @@
-# Pipeline Gstreamer desde la raspberry Pi 4 model B:
+# Pipeline Gstreamer usando una webcam desde la raspberry Pi 4 model B:
 # gst-launch-1.0 -v v4l2src device=/dev/video0 ! videoconvert ! video/x-raw,format=YUY2,width=640,height=480,framerate=30/1 ! jpegenc ! rtpjpegpay ! udpsink host=192.168.43.54 port=9999
 
 import cv2
