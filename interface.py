@@ -14,7 +14,7 @@ pError = 0
 class App:
     def __init__(self, root):
         #setting title
-        root.title("Dagger Demo Mision ")
+        root.title("Dagger Interface ")
         #setting window size
         width=558
         height=319
@@ -30,7 +30,7 @@ class App:
         GLabel_471["font"] = ft
         GLabel_471["fg"] = "#333333"
         GLabel_471["justify"] = "center"
-        GLabel_471["text"] = "Dagger 1"
+        GLabel_471["text"] = "Dagger"
         GLabel_471["relief"] = "flat"
         GLabel_471.place(x=0,y=0,width=557,height=92)
 
@@ -43,6 +43,28 @@ class App:
         GButton_787["text"] = "Ruta Programada"
         GButton_787["relief"] = "raised"
         GButton_787.place(x=210,y=170,width=129,height=43)
+        GButton_787["command"] = self.GButton_787_command
+
+        GButton_787=tk.Button(root)
+        GButton_787["bg"] = "#f0f0f0"
+        ft = tkFont.Font(family='Times',size=10)
+        GButton_787["font"] = ft
+        GButton_787["fg"] = "#000000"
+        GButton_787["justify"] = "center"
+        GButton_787["text"] = "Armar"
+        GButton_787["relief"] = "raised"
+        GButton_787.place(x=210,y=120,width=129,height=43)
+        GButton_787["command"] = self.GButton_787_command
+
+        GButton_787=tk.Button(root)
+        GButton_787["bg"] = "#f0f0f0"
+        ft = tkFont.Font(family='Times',size=10)
+        GButton_787["font"] = ft
+        GButton_787["fg"] = "#000000"
+        GButton_787["justify"] = "center"
+        GButton_787["text"] = "Despegar"
+        GButton_787["relief"] = "raised"
+        GButton_787.place(x=90,y=120,width=129,height=43)
         GButton_787["command"] = self.GButton_787_command
 
         # GButton_417=tk.Button(root)
@@ -68,7 +90,7 @@ class App:
 
     def GButton_787_command(self): #Ruta
         print("Ruta")
-        exec(open("mission.py").read())
+        exec(open("arm_takeoff.py").read())
 
     # def GButton_417_command(self):# Seguidor de rostros
     #     print("Seguidor")
