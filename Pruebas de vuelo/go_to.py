@@ -11,19 +11,19 @@ from __future__ import print_function
 import time
 from dronekit import connect, VehicleMode, LocationGlobalRelative
 
-
-# Set up option parsing to get connection string
-import argparse
-parser = argparse.ArgumentParser(description='Commands vehicle using vehicle.simple_goto.')
-parser.add_argument('--connect',
-                    help="Vehicle connection target string. If not specified, SITL automatically started and used.")
+parser = argparse.ArgumentParser()
+parser.add_argument('--connect', default='127.0.0.1:14550')
 args = parser.parse_args()
+connection_string = '192.168.43.135:14550'
 
-connection_string = 'COM9'
-
-# Connect to the drone
+# Connect to the drone using UDP
 print("Connecting to vehicle on: %s" % connection_string)
-vehicle = connect(connection_string, baud=230400, wait_ready=True, heartbeat_timeout=120)
+vehicle = connect(connection_string, baud=115200, wait_ready=True, rate= 20, heartbeat_timeout=120)
+#115200 is the baudrate that you have set in the mission plannar or qgc
+
+# Connect to the drone usind LoRa module
+#print("Connecting to vehicle on: %s" % connection_string)
+#vehicle = connect(connection_string, baud=230400, wait_ready=True, heartbeat_timeout=120)
 #230400 is the baudrate that you have set in the mission plannar or qgc
 
 def arm_and_takeoff(aTargetAltitude):
