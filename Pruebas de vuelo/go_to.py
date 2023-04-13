@@ -21,7 +21,7 @@ args = parser.parse_args()
 
 connection_string = 'COM9'
 
-# Connect to the Vehicle
+# Connect to the drone
 print("Connecting to vehicle on: %s" % connection_string)
 vehicle = connect(connection_string, baud=230400, wait_ready=True, heartbeat_timeout=120)
 #230400 is the baudrate that you have set in the mission plannar or qgc
@@ -64,27 +64,27 @@ def arm_and_takeoff(aTargetAltitude):
 # Initialize the takeoff sequence in meters
 arm_and_takeoff(2)
 
-# Set speed in m/s
-print("Set default/target airspeed to 7.2 km/h")
-vehicle.airspeed = 2
+# Speed in m/s
+print("Set drone speed to 3.6 km/h")
+vehicle.airspeed = 1
 
 # Set point 1 (Latitude, Longitude, "Altitude in meters (relative to the home location")
 print("Going towards first point...")
-point1 = LocationGlobalRelative(4.725515809464003, -74.27058715248589, 2)
+#point1 = LocationGlobalRelative(4.725515809464003, -74.27058715248589, 2)
+point1 = LocationGlobalRelative(4.726663, -74.270183, 2)
 vehicle.simple_goto(point1)
 
 # Sleep so we can see the change in map
-time.sleep(30)
+time.sleep(10)
 
 # Set groundspeed in m/s
-vehicle.simple_goto(point1, groundspeed=2)
+vehicle.simple_goto(point1, groundspeed = 1)
 
 # sleep so we can see the change in map
-time.sleep(30)
+time.sleep(10)
 
 print("Returning to Launch")
 vehicle.mode = VehicleMode("RTL")
 
 # Close vehicle object before exiting script
-print("Close vehicle object")
 vehicle.close()
