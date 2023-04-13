@@ -38,7 +38,7 @@ def arm_and_takeoff(aTargetAltitude):
         time.sleep(1)
 
     print("Arming motors")
-    # Copter should arm in GUIDED mode
+    # Drone should arm in GUIDED mode
     vehicle.mode = VehicleMode("GUIDED")
     vehicle.armed = True
 
@@ -54,7 +54,7 @@ def arm_and_takeoff(aTargetAltitude):
     #  (otherwise the command after Vehicle.simple_takeoff will execute
     #   immediately).
     while True:
-        print(" Altitude: ", vehicle.location.global_relative_frame.alt)
+        print(" Altitude: ", vehicle.location.global_relative_frame.alt, "mts")
         # Break and return from function just below target altitude.
         if vehicle.location.global_relative_frame.alt >= aTargetAltitude * 0.95:
             print("Reached target altitude")
