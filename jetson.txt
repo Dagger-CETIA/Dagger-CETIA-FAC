@@ -1,0 +1,8 @@
+JETSON NANO
+
+# Correr Detección de Objetos:
+
+pwd /Deteccion_Objetos/jetson-inference
+	docker/run.sh
+		cd python/examples/
+		./detectnet.oy /dev/video0
