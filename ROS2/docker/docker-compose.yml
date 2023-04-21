@@ -1,0 +1,33 @@
+version: "3.3"
+services:
+  sdv_un:
+    container_name: dagger
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+
+    init: true
+    privileged: true
+
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - ../dagger_ws:/dagger_ws
+
+      # Forwards the local Docker socket to the container.
+      #- /var/run/docker.sock:/var/run/docker.sock
+
+      # Enable GUI environments
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # Enable kernel modules (v4l2loopback)
+      - /lib/modules:/lib/modules
+      # Enable creating/reading inside docker new devices
+      - /dev:/dev
+
+    # Overrides default command so things don't shut down after the process ends.
+    # command: sleep infinity 
+    stdin_open: true
+    tty: true
+
+    command: "/bin/bash"
