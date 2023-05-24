@@ -13,7 +13,7 @@ services:
       - DISPLAY
       - QT_X11_NO_MITSHM=1
     volumes:
-      - ../src:/workspace
+      - ../zed_ws:/zed_ws
 
       # Forwards the local Docker socket to the container.
       #- /var/run/docker.sock:/var/run/docker.sock
@@ -24,10 +24,18 @@ services:
       - /lib/modules:/lib/modules
       # Enable creating/reading inside docker new devices
       - /dev:/dev
-    working_dir: /workspace
+    #working_dir: /zed_ws
     # Overrides default command so things don't shut down after the process ends.
     # command: sleep infinity 
     stdin_open: true
     tty: true
 
     command: "/bin/bash"
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

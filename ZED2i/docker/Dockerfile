@@ -1,8 +1,9 @@
-FROM ubuntu:20.04
-## Installs ROS2 foxy with gazebo garden
+FROM ubuntu:22.04
+
+## Installs ROS2 humble with gazebo garden
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
-ENV ROS_DISTRO=foxy
+ENV ROS_DISTRO=humble
 
 SHELL [ "/bin/bash", "-c" ]
 
@@ -11,7 +12,6 @@ RUN apt-get update && apt-get install -y \
     nano \
     python3-pip \
     sudo
-
 
 # Helpful packages for ROS development
 RUN pip3 install -U empy pyros-genmsg setuptools
@@ -32,5 +32,12 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
     && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null \
     && apt-get update \
     && apt-get install -y gz-garden
+
+
+# Setup the ZED SDK
+RUN DEBIAN_FRONTEND=noninteractive apt-get install keyboard-configuration
+RUN sudo apt install zstd
+RUN wget -O ZED_SDK_Ubuntu22_cuda12.1_v4.0.3.zstd.run https://download.stereolabs.com/zedsdk/4.0/cu121/ubuntu22 \
+    && chmod +x ZED_SDK_Ubuntu22_cuda12.1_v4.0.3.zstd.run && DEBIAN_FRONTEND=noninteractive ./ZED_SDK_Ubuntu22_cuda12.1_v4.0.3.zstd.run -- silent runtime_only
 
 CMD ["/bin/bash"]
