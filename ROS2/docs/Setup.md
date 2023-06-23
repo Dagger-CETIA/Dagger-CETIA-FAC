@@ -115,15 +115,17 @@ Notas:
 
 
 # ¿Cómo correr el contenedor?
+> Nota: Ir a la carpeta en donde se encuentra los archivos "Dockerfile" y "docker-compose"
 ```shell
-$ cd dagger_ws/docker
+$ cd /home/dagger/Descargas/dagger/Docker/docker ("Ruta de Ejemplo") 
+
 docker$ docker compose up -d --build
 docker$ bash startup.sh
 ```
 
 > Nota: Para detener el contenedor utilize (fuera del contenedor)
 ```shell
-$ cd dagger_ws/docker
+$ cd /home/dagger/Descargas/dagger/Docker/docker ("Ruta de Ejemplo") 
 docker$ docker compose down -v
 ``` 
 
