@@ -7,7 +7,7 @@ Conjunto de paquetes de ROS2 utilizados para el desarrollo del proyecto Dagger.
 
 ## Requerimientos
 
-- Docker y docker compose ([How to install](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es))
+- Docker y docker compose - ¿Cómo instalar? ([Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es)) ([Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)) :  
 
     > Nota: Verifique que docker está instalado correctamente utilizando los siguientes comandos. Debería mostrar la versión de cada programa.
     ```shell
