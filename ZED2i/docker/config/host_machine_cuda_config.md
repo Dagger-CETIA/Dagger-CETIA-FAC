@@ -1,4 +1,6 @@
-# Guía para instalar y configurar la máquina en donde se corre el contenedor
+# Guía para instalar y configurar en el PC (fuera del contenedor Docker)
+
+**Permite al contenedor docker usar la tarjeta grafica del PC** 
 
 Para configurar NVIDIA Container toolkit se utiliza la [guía](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#platform-requirements) de la página oficial de NVIDIA. 
 
