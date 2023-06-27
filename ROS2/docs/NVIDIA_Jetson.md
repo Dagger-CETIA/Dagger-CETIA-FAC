@@ -1,30 +1,34 @@
 # Guia para configurar NVIDIA Jetson Nano 2GB
-Conjunto de pasos y repositorios en la Jetson Nano 2GB utilizados para el desarrollo del proyecto Dagger.
+Conjunto de pasos y repositorios utilizados para el desarrollo del proyecto Dagger usando la ([NVIDIA Jetson Nano Developer Kit 2GB.](https://developer.nvidia.com/embedded/learn/jetson-nano-2gb-devkit-user-guide))  
+
 # Tabla de contenidos
 - [Requerimientos](#Requerimientos)
-- Guía para  instalar y configurar la tarjeta gráfica integrada NVIDIA (GPU) en el PC con Ubuntu (fuera del contenedor Docker)
+- Instalación de Jetpack 4.5 (con Ubuntu 18.04) en la microSD de 64GB
 - [Configuración inicial](#Configuración-inicial)
 
-## Instalación del Jetpack 4.5 en la microSD de 64GB
+## Instalación de Jetpack 4.5 (con Ubuntu 18.04) en microSD de 64GB
 
-- Imagen ISO del Jetpack 4.5 y guía detallada de NVIDIA (Descargar para Jetson Nano 2GB) ([Descargar imagen ISO](https://developer.nvidia.com/embedded/jetpack-sdk-45-archive)) ([Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)) :  
+- Seguir los pasos a continuación:
+  
+    1- Descargar imagen Jetpack 4.5 y guía con más detalles ([Descargar imagen ISO](https://developer.nvidia.com/embedded/jetpack-sdk-45-archive)) 
 
-    > Nota: Verifique que docker está instalado correctamente utilizando los siguientes comandos. Debería mostrar la versión de cada programa.
+    2- Formatear la micro SD usando ([SD Card Formatter](https://www.sdcard.org/downloads/formatter/)) en Windows/Mac o en Linux seguir los ([pasos](https://www.softzone.es/linux/tutoriales/formatear-linux/))
+
+    3- Flashear la imagen Jetpack descargada en el paso 1 en la microSD usando ([balena](https://etcher.balena.io/)) disponibles para Windows/Linux/Mac.
+
+    4- Insertar la microSD en la ranuera de la NVIDA Jetson y realizar las configuraciones y actulizaciones correspondientes con: 
+  
     ```shell
-    $ docker compose version
-    $ docker version
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
     ```
-    > Nota: Para formatear la microSD se usa
+    > Nota: 
     
-https://etcher.balena.io/
-    > **Asegurese de configurar el grupo de docker**
+    > ** **
     ```shell
-    $ sudo groupadd docker
-    $ sudo usermod -aG docker $USER
-    $ newgrp docker
-    $ reboot
+    $ 
     ```
-# Guía para descargar y configurar el ventilador (fan control)** 
+## Guía para descargar y configurar el ventilador (fan control)** 
 
 > Nota: Para seguir y descargar el [repositorio github](https://github.com/Pyrestone/jetson-fan-ctl) con todo lo necesario del ventilador. 
 
