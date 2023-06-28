@@ -46,25 +46,27 @@ Conjunto de pasos y repositorios utilizados para el desarrollo del proyecto Dagg
   $ sudo ./install.sh
    ```
 
-  ## Guía para configurar y hacer la conexión serial entre la NVIDA Jetson Nano y la Pixhawk 2.4.8 el ventilador (fan control) 
+  ## Guía para configurar y hacer la conexión serial entre la NVIDA Jetson Nano y la Pixhawk 2.4.8
 
-- Se siguen los pasos del [repositorio github](https://github.com/Pyrestone/jetson-fan-ctl) con todo lo necesario del ventilador. 
+> Se siguen los pasos del [foro](https://www.hackster.io/Matchstic/connecting-pixhawk-to-raspberry-pi-and-nvidia-jetson-b263a7). 
 
-  1- Es necesario tener instalado Python 3. Así si puede verficar la versión actual:
+  1- Actulizaciones:
 
   ```shell
-  $ python3 --version
-  
-  > De otro modo se puede instalar Python usando:
-  
-  $ sudo apt install python3-dev
+  $ sudo apt-get update
     ```
-  2- Clonar el repositorio usando: 
+
+  2- Instalar pip para Python 
 
   ```shell
-  $ git clone https://github.com/Pyrestone/jetson-fan-ctl.git
-   ```    
-  3- Dentro de la carpeta clonada (jetson-fan-ctl) ejecutar:
+  $ sudo apt-get install python3-pip
+   ```
+
+  3- Instalar todas las dependencias para MAVProxy:
+  
   ```shell
-  $ sudo ./install.sh
+  $ sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-matplotlib python3-lxml libxml2-dev libxslt-dev
+  $ sudo mavproxy.py --master=/dev/ttyTHS1
+  - Para la Raspberry Pi 4 modelo B:
+  $ sudo mavproxy.py --master=/dev/ttyACM0
    ``` 
