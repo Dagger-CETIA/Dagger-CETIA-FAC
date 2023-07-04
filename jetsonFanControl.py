@@ -21,7 +21,7 @@ subprocess.run(["sudo", "apt-get", "install", "build-essential", "libi2c-dev", "
 subprocess.run(["make"])
 
 # Instalar el programa
-subprocess.run(["sudo", "make", "install"])
+subprocess.run(["sudo", "make", "install.sh"])
 
 # Reiniciar el sistema para aplicar los cambios
 subprocess.run(["sudo", "reboot"])
