@@ -3,7 +3,7 @@ Conjunto de pasos y repositorios utilizados para el desarrollo del proyecto Dagg
 
 # Tabla de contenidos
 - [Requerimientos](#Requerimientos)
-- Instalación de Jetpack 4.5 (con Ubuntu 18.04) en la microSD de 64GB
+- Instalación de Jetpack 4.6.1 (con Ubuntu 18.04) en la microSD de 64GB
 - [Configuración inicial](#Configuración-inicial)
 
 ## Instalación de Jetpack 4.6.1 (con Ubuntu 18.04)
@@ -68,7 +68,6 @@ Conjunto de pasos y repositorios utilizados para el desarrollo del proyecto Dagg
   ```shell
   $ sudo apt-get install python3-pip
   $ sudo apt install python-pip
-
    ```
 
   3- Instalar todas las dependencias para MAVProxy:
@@ -78,4 +77,33 @@ Conjunto de pasos y repositorios utilizados para el desarrollo del proyecto Dagg
   $ sudo mavproxy.py --master=/dev/ttyTHS1
   - Para la Raspberry Pi 4 modelo B:
   $ sudo mavproxy.py --master=/dev/ttyACM0
+   ```
+
+  ## Guía para descargar y configurar el reconocimiento de Objetos
+
+> Se siguen los pasos del [repositorio](https://github.com/dusty-nv/jetson-inference). 
+
+  1- Actulizaciones:
+
+  ```shell
+  $ sudo apt-get update
+    ```
+
+  2- Clonar el repositorio jetson-inference usando:
+
+  ```shell
+  $ git clone --recursive https://github.com/dusty-nv/jetson-inference  
+   ```
+
+  3- Dentro del directorio clonado (jetson-inference) correr el contenedor de Docker:
+  
+  ```shell
+  $ cd jetson-inference
+  $ docker/run.sh
+   ```
+  4- Para correr el modelo de Detección de Objetos :
+  
+  ```shell
+  $ cd jetson-inference
+  $ docker/run.sh
    ``` 
